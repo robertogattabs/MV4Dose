@@ -2,9 +2,10 @@
 #'
 #' @export
 #' @useDynLib MV4Dose
-#' @import MV4 XML progress stringr interp
+#' @import MV4 XML progress stringr interp 
+#' @importFrom mgcv in.out
 
-geoLet_dose <- function( ) {
+geoLet_dose <- function(  ) {
 
   global_objGTL <- c()
   global_lst.Dose <- c()
@@ -140,10 +141,10 @@ getROIDose <- function( ROIName , CT.SeriesInstanceUID = NA , cropIt = TRUE ) {
     for( SOPInstanceUID in arr.RD.SOPInstanceUID  ) {
       doseStorage <- global_lst.Dose[[SOPInstanceUID]]
 
-      if( global_cacheDir == "" ) stop("\n cacheDir not set ")
+      # if( global_cacheDir == "" ) stop("\n cacheDir not set ")
 
       # global_cacheDir.fullName <- paste(c(global_cacheDir,"/",global_patientFolderName),collapse='')
-      #
+      # #
       # if( dir.exists(global_cacheDir.fullName) == FALSE ) {
       #   dir.create( global_cacheDir.fullName )
       #   if( dir.exists(global_cacheDir.fullName) == FALSE ) {
@@ -599,12 +600,12 @@ getROIDose <- function( ROIName , CT.SeriesInstanceUID = NA , cropIt = TRUE ) {
   #=================================================================================
   # Constructor
   #=================================================================================
-  constructor<-function( ) {
+  constructor<-function(  ) {
     global_objGTL <<- c()
     global_lst.Dose <<- c()
     global_PSinterpDoseGrid <<- c( 0.75, 0.75, 1 )
     global_resampleDoseVoxelCubeToROI <<- list()
-    global_cacheDir <<- cacheDir
+    global_cacheDir <<- ""
   }
   constructor(  )
   return( list(

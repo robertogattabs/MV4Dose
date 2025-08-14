@@ -2,7 +2,7 @@
 #'
 #' @export
 #' @useDynLib MV4Dose
-#' @import Morpho Rvcg rgl MV4
+#' @import Morpho Rvcg rgl MV4 misc3d
 
 doseTools <- function( ) {
 

@@ -60,8 +60,8 @@ void interpola_suAltraMatricePunti(
 
     /* controlli minimi */
     if (nxDS < 2 || nyDS < 2 || nzDS < 2) {
-        Rprintf("[interp] Griglia DS troppo piccola (>=2 per asse richiesto).\n");
-        R_FlushConsole();
+//        Rprintf("[interp] Griglia DS troppo piccola (>=2 per asse richiesto).\n");
+//        R_FlushConsole();
         /* output già 0 se allocato con double(...); in ogni caso azzero */
         const size_t N = (size_t)nxCT * nyCT * nzCT;
         for (size_t q = 0; q < N; ++q) returnMatrix[q] = 0.0;
@@ -70,8 +70,8 @@ void interpola_suAltraMatricePunti(
     if (!is_strictly_increasing(xPos_DS, nxDS) ||
         !is_strictly_increasing(yPos_DS, nyDS) ||
         !is_strictly_increasing(zPos_DS, nzDS)) {
-        Rprintf("[interp] Assi DS non strettamente crescenti. Restituisco 0.\n");
-        R_FlushConsole();
+//        Rprintf("[interp] Assi DS non strettamente crescenti. Restituisco 0.\n");
+//        R_FlushConsole();
         const size_t N = (size_t)nxCT * nyCT * nzCT;
         for (size_t q = 0; q < N; ++q) returnMatrix[q] = 0.0;
         return;
